@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, DateTime, Float, String, ForeignKey
+from sqlalchemy import Column, Integer, DateTime, Float, String
 from config.database import Base
 
 class Cliente(Base):
@@ -23,13 +23,3 @@ class Produto(Base):
     valorMinimoAporteExtra = Column(Float)
     idadeEntrada = Column(Integer)
     idadeSaida = Column(Integer)
-
-class Contrato(Base):
-    __tablename__ = "contratos"
-
-    id = Column(Integer, primary_key=True, index=True, autoincrement=True)
-    idCliente = Column(Integer, ForeignKey("clientes.id"))
-    idProduto = Column(Integer, ForeignKey("produtos.id"))
-    aporte = Column(Float)
-    aporteExtra = Column(Float, default=0.0)
-    dataContratacao = Column(DateTime)
