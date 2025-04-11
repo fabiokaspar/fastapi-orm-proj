@@ -28,6 +28,7 @@ app.include_router(cliente_router)
 app.include_router(produto_router)
 
 if __name__ == "__main__":
+    print("Starting server...")
     uvicorn.run(
         "main:app",
         port=8000,
