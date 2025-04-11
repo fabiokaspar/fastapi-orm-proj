@@ -3,7 +3,7 @@
 DIR_VENV="./venv"
 if [[ ! -e $DIR_VENV ]]; then
   echo "Creating virtual environment..."
-  python -m venv venv
+  python3 -m venv venv
   echo "Activating virtual environment..."
   source venv/bin/activate
   echo "Installing dependencies..."
