@@ -15,8 +15,9 @@ fi
 
 if [ "$ENV_MODE" == "production" ]; then
   echo "Modo produção"
-  echo "Subindo banco de dados..."
-  sudo docker-compose --env-file .env.production -f docker-compose.yml up
+  echo "Conectando ao RDS..."
+  cp .env.production .env
+  python3 main.py
 else
   echo "Modo dev"
   cp .env.development .env
