@@ -15,7 +15,8 @@ fi
 
 if [ "$ENV_MODE" == "production" ]; then
   echo "Modo produção"
-  docker-compose --env-file .env.production -f docker-compose.yml up
+  echo "Subindo banco de dados..."
+  sudo docker-compose --env-file .env.production -f docker-compose.yml up
 else
   echo "Modo dev"
   cp .env.development .env
