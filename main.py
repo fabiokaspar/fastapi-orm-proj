@@ -4,6 +4,7 @@ import uvicorn
 from config.database import engine
 from routers.cliente import router as cliente_router
 from routers.produto import router as produto_router
+from fastapi.responses import JSONResponse
 
 openapi_tags = [
     {
@@ -23,6 +24,12 @@ app = FastAPI(description="API Prev",
 
 
 models.Base.metadata.create_all(bind=engine)
+
+
+@app.get("/", tags=["Health Check"])
+async def health_check():
+    return JSONResponse(status_code=200, content={"status": "ok"})
+
 
 app.include_router(cliente_router)
 app.include_router(produto_router)
