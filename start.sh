@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ "$ENV_MODE" == "production" ]; then
-  cd /app
+  cd /app/fastapi-orm-proj
 fi
 
 DIR_VENV="./venv"
