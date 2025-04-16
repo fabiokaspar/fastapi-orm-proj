@@ -19,9 +19,9 @@ fi
 
 if [ "$ENV_MODE" == "production" ]; then
   echo "Modo produção"
-  echo "Conectando ao RDS..."
   cp .env.production .env
-  python3 main.py
+  echo "Iniciando FastAPI com Uvicorn..."
+  exec uvicorn main:app --host 0.0.0.0 --port 8000
 else
   echo "Modo dev"
   cp .env.development .env
