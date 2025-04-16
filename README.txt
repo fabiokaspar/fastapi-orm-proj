@@ -61,4 +61,5 @@ Para testar, no navegador cole:
 
 http://<IP_PUBLICO>:8000/docs 
 
-A api deve estar respondendo normalmente.
+A api deve estar respondendo normalmente sempre que a instância ec2
+configurada for reiniciada. Lembrando que a instância RDS deve estar de pé também;
