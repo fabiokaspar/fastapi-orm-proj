@@ -1,5 +1,9 @@
 #!/bin/bash
 
+if [ "$ENV_MODE" == "production" ]; then
+  cd /app
+fi
+
 DIR_VENV="./venv"
 if [[ ! -e $DIR_VENV ]]; then
   echo "Creating virtual environment..."
