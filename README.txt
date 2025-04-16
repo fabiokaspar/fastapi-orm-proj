@@ -29,4 +29,36 @@ DB_PORT=<porta banco>
 DB_USER=<user banco>
 DB_PASSWORD=<senha banco>
 
-Rode o script ./start.sh
+Crie o arquivo /etc/systemd/system/fastapi.service com o seguinte conteudo:
+
+[Unit]
+Description=FastAPI App
+After=network.target
+
+[Service]
+User=root
+WorkingDirectory=/app/fastapi-orm-proj
+ExecStart=/app/fastapi-orm-proj/start.sh
+Restart=always
+RestartSec=5
+Environment=PATH=/app/fastapi-orm-proj/venv/bin
+Environment=ENV_MODE=production
+
+[Install]
+WantedBy=multi-user.target
+
+Salve e rode os comandos:
+
+chmod +x /app/fastapi-orm-proj/start.sh
+
+sudo systemctl daemon-reexec
+sudo systemctl daemon-reload
+sudo systemctl enable fastapi
+sudo systemctl restart fastapi
+sudo systemctl status fastapi
+
+Para testar, no navegador cole:
+
+http://<IP_PUBLICO>:8000/docs 
+
+A api deve estar respondendo normalmente.
