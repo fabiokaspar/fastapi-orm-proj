@@ -28,7 +28,7 @@ models.Base.metadata.create_all(bind=engine)
 
 @app.get("/", tags=["Health Check"])
 async def health_check():
-    return JSONResponse(status_code=200, content={"status": "OK - load balancer"})
+    return JSONResponse(status_code=200, content={"status": "OK - load balancer com ecs"})
 
 
 app.include_router(cliente_router)
